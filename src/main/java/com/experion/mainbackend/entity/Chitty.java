@@ -5,6 +5,8 @@ import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "chitty")
@@ -49,6 +51,11 @@ public class Chitty {
 
     @Column(name = "status")
     private String status;
+
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "chittalId",fetch = FetchType.LAZY)
+    private Set<ChittalDetails> chittals= new HashSet<>();
+
 
     public Chitty(Long chitNumber, Long installment, Long duration, ChittyCategory category, int numberOfChittal, int currentNumberOfChittal, Long totalAmount, Manager manager, Date launchDate, Date startDate, String status) {
         this.chitNumber = chitNumber;
