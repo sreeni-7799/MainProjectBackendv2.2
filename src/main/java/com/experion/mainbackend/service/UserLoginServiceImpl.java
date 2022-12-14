@@ -44,8 +44,6 @@ public class UserLoginServiceImpl implements UserLoginService {
 
             if((userLogin.getEmail().equalsIgnoreCase(user.getEmail())) && (bcrypt.matches(user.getUserPassword(),userLogin.getPassword()))){
                 userId=userLogin.getUserId();
-                Optional<UserRegistration> registeredUser =userRegistrationRepo.findById(userLogin.getUserId());
-                firstName = registeredUser.get().getFirstName();
                 roleId = userLogin.getRole().getId();
                 role=userLogin.getRole().getRoleName();
                 email=userLogin.getEmail();
@@ -53,8 +51,6 @@ public class UserLoginServiceImpl implements UserLoginService {
                 break;
             } else if ((userLogin.getEmail().equalsIgnoreCase(user.getEmail())) && (user.getUserPassword().equals(userLogin.getPassword()))) {
                 userId=userLogin.getUserId();
-                Optional<UserRegistration> registeredUser = userRegistrationRepo.findById(userLogin.getUserId());
-                firstName = registeredUser.get().getFirstName();
                 roleId=userLogin.getRole().getId();
                 role=userLogin.getRole().getRoleName();
                 email=userLogin.getEmail();
@@ -65,7 +61,7 @@ public class UserLoginServiceImpl implements UserLoginService {
         }
 
 
-        return new UserResponse(userId,roleId,firstName,role,email,userLoginTracker);
+        return new UserResponse(userId,roleId,role,email,userLoginTracker);
     }
 
 

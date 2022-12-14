@@ -8,7 +8,6 @@ public class UserResponse {
 
     private final Long userId;
     private final Long roleId;
-    private final String firstName;
     private final String role;
     private final String email;
     private final int userLoginTracker;
