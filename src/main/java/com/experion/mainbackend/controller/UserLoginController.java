@@ -27,6 +27,10 @@ public class UserLoginController {
 //    private String updateUser(@RequestBody Role role, @PathVariable("employeeId") Long employeeId) {
 //        return userLoginService.updateUser(role, employeeId);
 
+    @PostMapping("*/user/userlogin")
+    private UserResponse userLogin(@RequestBody User user ){
+        return userLoginService.userLogin(user);
+    }
 
     @PostMapping("*/user/change-password")
     private String changePassword(@RequestBody ChangePassword changePassword) {
