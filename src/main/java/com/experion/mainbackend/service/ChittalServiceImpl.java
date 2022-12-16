@@ -1,6 +1,7 @@
 package com.experion.mainbackend.service;
 
 import com.experion.mainbackend.dto.ChittalPost;
+import com.experion.mainbackend.dto.ChittalPostResponse;
 import com.experion.mainbackend.entity.ChittalDetails;
 import com.experion.mainbackend.entity.Chitty;
 import com.experion.mainbackend.entity.UserRegistration;
@@ -22,10 +23,9 @@ public class ChittalServiceImpl implements ChittalService{
     private ChitRepository chitRepository;
 
     @Override
-    public ChittalPost addChittal(ChittalPost request) {
+    public ChittalPostResponse addChittal(ChittalPost request) {
         ChittalDetails chittalDetails = new ChittalDetails();
         BeanUtils.copyProperties(request,chittalDetails);
-        chittalDetails.setChittalId(request.getChittalId());
         Optional<UserRegistration> userRegistration = userRegistrationRepo.findById(request.getUserId());
         chittalDetails.setUserId(userRegistration.get());
         Optional<Chitty> chitty = chitRepository.findById(request.getChittyId());
@@ -40,6 +40,8 @@ public class ChittalServiceImpl implements ChittalService{
         chittalDetails.setAadhar(request.getAadhar());
         chittalDetailsRepo.save(chittalDetails);
 
-        return request;
+        Long chittalId = chittalDetails.getChittalId();
+        return new ChittalPostResponse(chittalId);
     }
+
 }

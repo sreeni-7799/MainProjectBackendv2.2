@@ -13,5 +13,4 @@ public class UserRegistrationDTO {
     private Long mobileNo;
     private String passWord;
     private Integer roleId;
-
 }

@@ -5,6 +5,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
@@ -14,6 +16,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Helper {
+
+//    @Autowired
+//    private static BCryptPasswordEncoder passwordEncoder;
+static BCryptPasswordEncoder bcrypt=new BCryptPasswordEncoder();
 
     final static String defaultPassword = "manager@123";
 
@@ -80,7 +86,7 @@ public class Helper {
                             p.setMobileNumber((long)cell.getNumericCellValue());
                             break;
                         case 5:
-                            p.setPassWord(defaultPassword);
+                            p.setPassWord(bcrypt.encode(defaultPassword));
                             break;
                         case 6:
                             p.setRoleId((int)cell.getNumericCellValue());

@@ -45,6 +45,4 @@ public class ManagerController {
         managerService.add(manager);
         return new ResponseEntity<>("Manager added succesfully",HttpStatus.CREATED);
     }
-
-
 }

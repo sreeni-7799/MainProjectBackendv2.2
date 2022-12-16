@@ -1,8 +1,9 @@
 package com.experion.mainbackend.controller;
 
 import com.experion.mainbackend.dto.ChittalPost;
-import com.experion.mainbackend.dto.ChittalPostResponse;
+import com.experion.mainbackend.dto.NomineePost;
 import com.experion.mainbackend.service.ChittalService;
+import com.experion.mainbackend.service.NomineeService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,18 +11,16 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 @RestController
 @AllArgsConstructor
-@RequestMapping("*/chittal")
+@RequestMapping("*/nominee")
 
-public class ChittalPostController {
+public class NomineePostController {
 
     @Autowired
-    private ChittalService chittalService;
+    private NomineeService nomineeService;
 
     @PostMapping("/add")
-    public ChittalPostResponse addChittal(@RequestBody ChittalPost request){
-        return chittalService.addChittal(request);
+    public NomineePost addNominee(@RequestBody NomineePost request){
+        return nomineeService.addNominee(request);
     }
-
-
-
 }
+
