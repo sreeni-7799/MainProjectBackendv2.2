@@ -5,6 +5,8 @@ import com.experion.mainbackend.dto.UserRegistrationDTO;
 import com.experion.mainbackend.entity.UserRegistration;
 import com.experion.mainbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +20,8 @@ public class UserServiceController {
     UserService userService;
 
     @PostMapping("*/user-profile")
-    private UserRegistration registerNewUserAccount(@RequestBody UserRegistrationDTO add) {
-        return userService.registerNewUserAccount(add);
+    private ResponseEntity<Object> registerNewUserAccount(@RequestBody UserRegistrationDTO add) {
+        this.userService.registerNewUserAccount(add);
+        return new ResponseEntity<>("User registered succesfully", HttpStatus.CREATED);
     }
 }
