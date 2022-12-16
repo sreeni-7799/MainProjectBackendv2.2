@@ -4,9 +4,11 @@ package com.experion.mainbackend.service;
 import com.experion.mainbackend.dto.ChangePassword;
 import com.experion.mainbackend.dto.User;
 import com.experion.mainbackend.dto.UserResponse;
+import com.experion.mainbackend.entity.Manager;
 import com.experion.mainbackend.entity.Role;
 import com.experion.mainbackend.entity.UserLogin;
 import com.experion.mainbackend.entity.UserRegistration;
+import com.experion.mainbackend.repository.ManagerRepo;
 import com.experion.mainbackend.repository.UserLoginRepository;
 import com.experion.mainbackend.repository.UserRegistrationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,7 @@ public class UserLoginServiceImpl implements UserLoginService {
     private UserLoginRepository userLoginRepository;
     @Autowired
     private UserRegistrationRepo userRegistrationRepo;
+    private  ManagerRepo managerRepo;
 
 
     @Override
@@ -33,7 +36,7 @@ public class UserLoginServiceImpl implements UserLoginService {
         Long userId = null;
         String role= "";
         String email="";
-        String firstName="";
+        String firstName = null;
         int userLoginTracker=0;
 
 
@@ -44,9 +47,22 @@ public class UserLoginServiceImpl implements UserLoginService {
 
             if((userLogin.getEmail().equalsIgnoreCase(user.getEmail())) && (bcrypt.matches(user.getUserPassword(),userLogin.getPassword()))){
                 userId=userLogin.getUserId();
-                Optional<UserRegistration> registeredUser =userRegistrationRepo.findById(userLogin.getUserId());
-                firstName = registeredUser.get().getFirstName();
                 roleId = userLogin.getRole().getId();
+                if(roleId == 1)
+                {
+                    firstName = "admin";
+                }
+                if(roleId == 2)
+                {
+                    Optional<Manager> registeredManager = managerRepo.findById(userId);
+
+                    firstName = registeredManager.get().getFirstName();
+                }
+                if(roleId == 3)
+                {
+                    Optional<UserRegistration> registeredUser = userRegistrationRepo.findById(userId);
+                    firstName = registeredUser.get().getFirstName();
+                }
                 role=userLogin.getRole().getRoleName();
                 email=userLogin.getEmail();
                 userLoginTracker=0;
@@ -54,7 +70,7 @@ public class UserLoginServiceImpl implements UserLoginService {
             } else if ((userLogin.getEmail().equalsIgnoreCase(user.getEmail())) && (user.getUserPassword().equals(userLogin.getPassword()))) {
                 userId=userLogin.getUserId();
                 Optional<UserRegistration> registeredUser = userRegistrationRepo.findById(userLogin.getUserId());
-                firstName = registeredUser.get().getFirstName();
+//                firstName = registeredUser.get().getFirstName();
                 roleId=userLogin.getRole().getId();
                 role=userLogin.getRole().getRoleName();
                 email=userLogin.getEmail();
