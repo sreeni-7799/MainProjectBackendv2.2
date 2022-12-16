@@ -6,7 +6,6 @@ import java.util.Date;
 
 @Data
 public class NomineePost {
-
     private Long chittalId;
     private String name;
     private Integer age;

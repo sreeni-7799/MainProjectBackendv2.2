@@ -7,7 +7,6 @@ import lombok.Setter;
 @Setter
 public class ErrorDetails {
     private String message;
-
     public ErrorDetails(String message) {
     }
 }
