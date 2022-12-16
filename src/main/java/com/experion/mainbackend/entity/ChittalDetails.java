@@ -39,7 +39,7 @@ public class ChittalDetails {
     @Column(name="pincode")
     private Long pinCode;
 
-    @Column(name="userPhone")
+    @Column(name="user_phone")
     private Long userPhone;
 
     @Column(name = "dob")

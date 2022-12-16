@@ -19,13 +19,12 @@ public class NomineeServiceImpl implements NomineeService{
 
     private NomineeDetailsRepo nomineeDetailsRepo;
     private ChittalDetailsRepo chittalDetailsRepo;
-//    private ChitRepository chitRepository;
+
 
     @Override
     public NomineePost addNominee(NomineePost request) {
         NomineeDetails nomineeDetails = new NomineeDetails();
         BeanUtils.copyProperties(request,nomineeDetails);
-        nomineeDetails.setNomineeId(request.getNomineeId());
         Optional<ChittalDetails> chittalDetails = chittalDetailsRepo.findById(request.getChittalId());
         nomineeDetails.setChittalId(chittalDetails.get());
         nomineeDetails.setName(request.getName());
@@ -39,3 +38,4 @@ public class NomineeServiceImpl implements NomineeService{
         return request;
     }
 }
+

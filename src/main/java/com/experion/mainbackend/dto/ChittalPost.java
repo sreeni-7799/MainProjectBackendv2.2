@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Data
 public class ChittalPost {
-    private Long chittalId;
+
     private Long userId;
     private Long chittyId;
     private Integer age;

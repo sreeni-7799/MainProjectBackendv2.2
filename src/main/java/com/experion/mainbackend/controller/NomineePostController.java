@@ -22,8 +22,5 @@ public class NomineePostController {
     public NomineePost addNominee(@RequestBody NomineePost request){
         return nomineeService.addNominee(request);
     }
-
-
-
-
 }
+
