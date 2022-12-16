@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 
@@ -28,10 +29,12 @@ public class UserLoginServiceImpl implements UserLoginService {
     @Override
     public UserResponse userLogin(User user) {
         BCryptPasswordEncoder bcrypt=new BCryptPasswordEncoder();
-    Long roleId=null;
-    String role= "";
-   String email="";
-   int userLoginTracker=0;
+        Long roleId=null;
+        Long userId = null;
+        String role= "";
+        String email="";
+        String firstName="";
+        int userLoginTracker=0;
 
 
         List<UserLogin> login=userLoginRepository.findAll();
@@ -40,12 +43,18 @@ public class UserLoginServiceImpl implements UserLoginService {
         for(UserLogin userLogin:login){
 
             if((userLogin.getEmail().equalsIgnoreCase(user.getEmail())) && (bcrypt.matches(user.getUserPassword(),userLogin.getPassword()))){
-                roleId=userLogin.getRole().getId();
+                userId=userLogin.getUserId();
+                Optional<UserRegistration> registeredUser =userRegistrationRepo.findById(userLogin.getUserId());
+                firstName = registeredUser.get().getFirstName();
+                roleId = userLogin.getRole().getId();
                 role=userLogin.getRole().getRoleName();
                 email=userLogin.getEmail();
                 userLoginTracker=0;
                 break;
             } else if ((userLogin.getEmail().equalsIgnoreCase(user.getEmail())) && (user.getUserPassword().equals(userLogin.getPassword()))) {
+                userId=userLogin.getUserId();
+                Optional<UserRegistration> registeredUser = userRegistrationRepo.findById(userLogin.getUserId());
+                firstName = registeredUser.get().getFirstName();
                 roleId=userLogin.getRole().getId();
                 role=userLogin.getRole().getRoleName();
                 email=userLogin.getEmail();
@@ -56,7 +65,7 @@ public class UserLoginServiceImpl implements UserLoginService {
         }
 
 
-        return new UserResponse(roleId,role,email,userLoginTracker);
+        return new UserResponse(userId,roleId,firstName,role,email,userLoginTracker);
     }
 
 
@@ -74,7 +83,7 @@ public class UserLoginServiceImpl implements UserLoginService {
                 return "Password updated successfully!";
             }
 
-             else if (Objects.equals(userLogin.getEmail(), changePassword.getEmail())&& (bcrypt.matches(changePassword.getCurrentPassword(),userLogin.getPassword()))) {
+            else if (Objects.equals(userLogin.getEmail(), changePassword.getEmail())&& (bcrypt.matches(changePassword.getCurrentPassword(),userLogin.getPassword()))) {
                 userLogin.setPassword(encryptedPassword);
                 userLoginRepository.save(userLogin);
                 return "Password updated successfully!";
