@@ -16,6 +16,7 @@ public class DuplicateRegistrationException {
     public ResponseEntity<?> handleDuplicateRegistrationException(SQLIntegrityConstraintViolationException exception, WebRequest request){
         ErrorDetails errorDetails = new ErrorDetails(exception.getMessage());
         errorDetails.setMessage(exception.getMessage());
+
         return new ResponseEntity<>(errorDetails.getMessage(), HttpStatus.NOT_FOUND);
     }
 }

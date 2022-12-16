@@ -5,6 +5,7 @@ import com.experion.mainbackend.entity.ChittyCategory;
 import com.experion.mainbackend.entity.Manager;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -18,7 +19,7 @@ public class ChittyPost {
     private Integer currentNumberOfChittal;
     private Long category;
     private Long totalAmount;
-    private Date launchDate;
-    private Date startDate;
+    private LocalDate launchDate;
+    private LocalDate startDate;
     private String status;
 }

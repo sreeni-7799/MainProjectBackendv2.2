@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins="*")
@@ -20,5 +21,10 @@ public interface ManagerRepo extends JpaRepository<Manager,Long> {
     @Override
     Optional<Manager> findById(Long aLong);
 
+
+    List<Manager> findByFirstName(String name);
+
     Page<Manager> findByfirstNameContaining(@Param("name") String firstName, Pageable pageable);
+
 }
+
