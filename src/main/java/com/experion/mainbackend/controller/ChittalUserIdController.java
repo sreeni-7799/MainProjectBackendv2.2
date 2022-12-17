@@ -17,7 +17,7 @@ public class ChittalUserIdController {
     @Autowired
    private ChittalUserIdService chittalUserIdService;
 
-    @GetMapping("*/get/{id}")
+    @GetMapping("*/getchitties/{id}")
     List<Long> getChitties(@PathVariable Long id){
         return chittalUserIdService.getChitties(id);
     }
