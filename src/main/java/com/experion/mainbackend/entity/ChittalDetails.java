@@ -21,9 +21,6 @@ public class ChittalDetails {
     @JsonIgnore
     private UserRegistration userId;
 
-//    @Column(name="userid")
-//    private Long userId;
-//
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "chitty_id",nullable = false)
@@ -53,13 +50,6 @@ public class ChittalDetails {
 
     @Column(name="aadhar")
     private Long aadhar;
-
-//    @JsonIgnore
-//    @ManyToMany(cascade = CascadeType.ALL,mappedBy = "chittalId",fetch = FetchType.LAZY)
-//    private Set<NomineeDetails> chits= new HashSet<>();
-
-//    @Column(name="nominee_id")
-//    private Integer nomineeId;
 
     public ChittalDetails(Long chittalId, UserRegistration userId, Chitty chittyId, Integer age, String address, Long pinCode, Long userPhone, Date dob, String status, Long income, Long aadhar) {
         this.chittalId = chittalId;
