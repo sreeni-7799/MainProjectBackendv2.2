@@ -1,6 +1,8 @@
 package com.experion.mainbackend.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
@@ -10,7 +12,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "chitty")
-@Data
+@Getter
+@Setter
 public class Chitty {
 
     @Id

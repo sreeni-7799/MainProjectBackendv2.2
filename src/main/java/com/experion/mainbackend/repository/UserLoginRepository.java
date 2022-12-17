@@ -1,6 +1,5 @@
 package com.experion.mainbackend.repository;
 
-
 import com.experion.mainbackend.entity.UserLogin;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,8 +10,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins="*")
 @DynamicUpdate
 public interface UserLoginRepository extends JpaRepository<UserLogin,Long> {
-
-
-
 
 }
