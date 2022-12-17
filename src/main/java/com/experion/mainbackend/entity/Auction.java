@@ -25,7 +25,7 @@ public class Auction {
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id",nullable = false)
     @JsonIgnore
-    private UserRegistration userId;
+    private UserLogin userId;
 
     @Column(name = "current_bid")
     private Long currentBid;
