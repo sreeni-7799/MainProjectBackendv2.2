@@ -19,7 +19,7 @@ public class Helper {
 
 //    @Autowired
 //    private static BCryptPasswordEncoder passwordEncoder;
-static BCryptPasswordEncoder bcrypt=new BCryptPasswordEncoder();
+//static BCryptPasswordEncoder bcrypt=new BCryptPasswordEncoder();
 
     final static String defaultPassword = "manager@123";
 
@@ -86,7 +86,9 @@ static BCryptPasswordEncoder bcrypt=new BCryptPasswordEncoder();
                             p.setMobileNumber((long)cell.getNumericCellValue());
                             break;
                         case 5:
-                            p.setPassWord(bcrypt.encode(defaultPassword));
+//                            p.setPassWord(bcrypt.encode(defaultPassword));
+//                            p.setPassWord(defaultPassword);
+                                p.setPassWord(cell.getStringCellValue());
                             break;
                         case 6:
                             p.setRoleId((int)cell.getNumericCellValue());
