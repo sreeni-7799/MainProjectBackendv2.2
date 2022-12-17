@@ -13,5 +13,6 @@ public class NomineePost {
     private Long phone;
     private String address;
     private Long pincode;
+    private Long aadhar;
 }
 
