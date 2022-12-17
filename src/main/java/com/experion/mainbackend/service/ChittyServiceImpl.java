@@ -9,6 +9,7 @@ import com.experion.mainbackend.entity.Chitty;
 import com.experion.mainbackend.repository.ManagerRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,6 +17,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class ChittyServiceImpl implements ChittyService{
+
 
     private ChitRepository chitRepository;
     private ManagerRepo managerRepo;
