@@ -54,8 +54,6 @@ public class NomineeDetails {
         this.address = address;
         this.pincode = pincode;
         this.aadhar=aadhar;
-
-
     }
 
     public NomineeDetails() {

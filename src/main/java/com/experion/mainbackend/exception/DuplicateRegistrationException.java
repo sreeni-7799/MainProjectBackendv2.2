@@ -15,6 +15,7 @@ public class DuplicateRegistrationException {
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
     public ResponseEntity<?> handleDuplicateRegistrationException(SQLIntegrityConstraintViolationException exception, WebRequest request){
         ErrorDetails errorDetails = new ErrorDetails(exception.getMessage());
-        return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+        errorDetails.setMessage(exception.getMessage());
+        return new ResponseEntity<>("Duplicate email", HttpStatus.CREATED);
     }
 }
