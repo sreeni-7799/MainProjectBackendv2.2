@@ -86,8 +86,6 @@ public class Helper {
                             p.setMobileNumber((long)cell.getNumericCellValue());
                             break;
                         case 5:
-//                            p.setPassWord(bcrypt.encode(defaultPassword));
-//                            p.setPassWord(defaultPassword);
                                 p.setPassWord(cell.getStringCellValue());
                             break;
                         case 6:

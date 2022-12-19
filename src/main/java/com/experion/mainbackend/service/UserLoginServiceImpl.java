@@ -44,7 +44,6 @@ public class UserLoginServiceImpl implements UserLoginService {
 
 
         for(UserLogin userLogin:login){
-
             if((userLogin.getEmail().equalsIgnoreCase(user.getEmail())) && (bcrypt.matches(user.getUserPassword(),userLogin.getPassword()))){
                 userId=userLogin.getUserId();
                 roleId = userLogin.getRole().getId();
@@ -79,7 +78,6 @@ public class UserLoginServiceImpl implements UserLoginService {
                 userLoginTracker=1;
                 break;
             }
-
         }
 
 
