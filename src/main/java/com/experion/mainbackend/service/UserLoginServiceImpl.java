@@ -36,54 +36,34 @@ public class UserLoginServiceImpl implements UserLoginService {
         Long userId = null;
         String role= "";
         String email="";
-        String firstName = null;
-        int userLoginTracker=0;
+//        String firstName = null;
+//        int userLoginTracker=0;
 
 
         List<UserLogin> login=userLoginRepository.findAll();
 
 
         for(UserLogin userLogin:login){
-
             if((userLogin.getEmail().equalsIgnoreCase(user.getEmail())) && (bcrypt.matches(user.getUserPassword(),userLogin.getPassword()))){
                 userId=userLogin.getUserId();
                 roleId = userLogin.getRole().getId();
-                if(roleId == 1)
-                {
-                    firstName = "admin";
-                }
-                if(roleId == 2)
-                {
-                    Optional<Manager> registeredManager = managerRepo.findById(userId);
-
-                    firstName = registeredManager.get().getFirstName();
-                }
-                if(roleId == 3)
-                {
-                    Optional<UserRegistration> registeredUser = userRegistrationRepo.findById(userId);
-                    firstName = registeredUser.get().getFirstName();
-                }
                 role=userLogin.getRole().getRoleName();
                 email=userLogin.getEmail();
-                userLoginTracker=0;
                 break;
             } else if ((userLogin.getEmail().equalsIgnoreCase(user.getEmail())) && (user.getUserPassword().equals(userLogin.getPassword()))) {
                 userId=userLogin.getUserId();
 
                 Optional<UserRegistration> registeredUser = userRegistrationRepo.findById(userLogin.getUserId());
-//                firstName = registeredUser.get().getFirstName();
 
                 roleId=userLogin.getRole().getId();
                 role=userLogin.getRole().getRoleName();
                 email=userLogin.getEmail();
-                userLoginTracker=1;
                 break;
             }
-
         }
 
 
-        return new UserResponse(userId,roleId,role,email,userLoginTracker);
+        return new UserResponse(userId,roleId,role,email);
     }
 
 
