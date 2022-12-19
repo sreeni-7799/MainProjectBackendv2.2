@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -19,11 +21,11 @@ public class ChittalUserIdServiceImpl implements ChittalUserIdService{
     private ChittalDetailsRepo chittalDetailsRepo;
     private ChitRepository chitRepository;
 //    List<Chitty> chittyList = new ArrayList<Chitty>();
-    List<Long> chittyNumbers = new ArrayList<>();
+    Set<Long> chittyNumbers = new HashSet<>();
     List<ChittalDetails> chittalList = new ArrayList<ChittalDetails>();
 
     @Override
-    public List<Long> getChitties(Long id) {
+    public Set<Long> getChitties(Long id) {
         chittalList = chittalDetailsRepo.findAll();
         for(ChittalDetails chittalDetails : chittalList){
 //            System.out.println(chittalDetails.getUserId().getId());

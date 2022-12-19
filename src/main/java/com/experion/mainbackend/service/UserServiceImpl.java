@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
         user.setEmail(userRegistrationDTO.getEmail());
         user.setMobileNo(userRegistrationDTO.getMobileNo());
-        user.setRoleId(3);
+        user.setRoleId(3L);
         return userRegistrationRepo.save(user);
     }
 }

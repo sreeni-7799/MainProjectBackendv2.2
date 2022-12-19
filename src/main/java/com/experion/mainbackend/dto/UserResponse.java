@@ -8,5 +8,4 @@ public class UserResponse {
     private final Long roleId;
     private final String role;
     private final String email;
-    private final int userLoginTracker;
 }
