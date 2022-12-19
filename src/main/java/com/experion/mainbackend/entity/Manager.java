@@ -38,7 +38,7 @@ public class Manager {
     private String passWord;
 
     @Column(name = "roleid")
-    private Integer roleId;
+        private Integer roleId;
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "manager",fetch = FetchType.LAZY)

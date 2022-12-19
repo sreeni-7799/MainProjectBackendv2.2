@@ -5,6 +5,7 @@ import com.experion.mainbackend.entity.Chitty;
 import com.experion.mainbackend.entity.ChittyCategory;
 import com.experion.mainbackend.entity.Manager;
 import com.experion.mainbackend.entity.UserRegistration;
+import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 @Configuration
+@EnableEncryptableProperties
 public class MyDataRestConfig implements RepositoryRestConfigurer {
 
     private EntityManager entityManager;

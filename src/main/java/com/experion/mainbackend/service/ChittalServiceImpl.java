@@ -2,6 +2,7 @@ package com.experion.mainbackend.service;
 
 import com.experion.mainbackend.dto.ChittalPost;
 import com.experion.mainbackend.dto.ChittalPostResponse;
+import com.experion.mainbackend.dto.UserJoinedChitty;
 import com.experion.mainbackend.entity.ChittalDetails;
 import com.experion.mainbackend.entity.Chitty;
 import com.experion.mainbackend.entity.UserRegistration;
@@ -43,5 +44,12 @@ public class ChittalServiceImpl implements ChittalService{
         Long chittalId = chittalDetails.getChittalId();
         return new ChittalPostResponse(chittalId);
     }
+
+    @Override
+    public UserJoinedChitty getChitty(UserJoinedChitty chittyDetails) {
+        chittyDetails.setUserId(chittyDetails.getUserId());
+        return chittyDetails;
+    }
+
 
 }
