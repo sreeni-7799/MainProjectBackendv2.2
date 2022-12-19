@@ -17,11 +17,8 @@ import java.util.List;
 
 public class Helper {
 
-//    @Autowired
-//    private static BCryptPasswordEncoder passwordEncoder;
-//static BCryptPasswordEncoder bcrypt=new BCryptPasswordEncoder();
-
     final static String defaultPassword = "manager@123";
+    final static Long roleId = 2L;
 
     //check that file is of excel type or not
     public static boolean checkExcelFormat(MultipartFile file) {
@@ -85,11 +82,11 @@ public class Helper {
                         case 4:
                             p.setMobileNumber((long)cell.getNumericCellValue());
                             break;
-                        case 5:
-                                p.setPassWord(cell.getStringCellValue());
-                            break;
-                        case 6:
-                            p.setRoleId((int)cell.getNumericCellValue());
+//                        case 5:
+//                            p.setPassWord(defaultPassword);
+//                            break;
+//                        case 6:
+//                            p.setRoleId(roleId);
                         default:
                     }
                     cid++;
