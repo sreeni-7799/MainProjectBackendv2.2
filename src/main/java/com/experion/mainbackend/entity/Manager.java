@@ -35,16 +35,20 @@ public class Manager {
     private Long mobileNumber;
 
     @Column(name = "password")
-    private String passWord;
+    private String passWord = "manager@123";
 
     @Column(name = "roleid")
-        private Integer roleId;
+
+
+
+    private Long roleId = 2L;
+
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "manager",fetch = FetchType.LAZY)
     private Set<Chitty> chits= new HashSet<>();
 
-    public Manager(Long emp_id, String firstName, String emp_lastname, String email, Long mobileNumber, String passWord, Integer roleId, Set<Chitty> chits) {
+    public Manager(Long emp_id, String firstName, String emp_lastname, String email, Long mobileNumber, String passWord, Long roleId, Set<Chitty> chits) {
         this.emp_id = emp_id;
         this.firstName = firstName;
         this.emp_lastname = emp_lastname;
@@ -107,11 +111,11 @@ public class Manager {
         this.passWord = passWord;
     }
 
-    public Integer getRoleId() {
+    public Long getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Integer roleId) {
+    public void setRoleId(Long roleId) {
         this.roleId = roleId;
     }
 

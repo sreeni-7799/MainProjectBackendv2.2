@@ -30,5 +30,5 @@ public class UserRegistration {
     private String passWord;
 
     @Column(name = "roleid")
-    private Integer roleId;
+    private Long roleId;
 }
