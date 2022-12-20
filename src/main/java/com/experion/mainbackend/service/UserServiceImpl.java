@@ -32,4 +32,8 @@ public class UserServiceImpl implements UserService {
         user.setRoleId(3L);
         return userRegistrationRepo.save(user);
     }
+
+    public UserServiceImpl(UserRegistrationRepo userRegistrationRepo) {
+        this.userRegistrationRepo = userRegistrationRepo;
+    }
 }
