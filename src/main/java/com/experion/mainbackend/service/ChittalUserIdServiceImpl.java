@@ -20,13 +20,13 @@ public class ChittalUserIdServiceImpl implements ChittalUserIdService{
     @Autowired
     private ChittalDetailsRepo chittalDetailsRepo;
     private ChitRepository chitRepository;
-//    List<Chitty> chittyList = new ArrayList<Chitty>();
-    Set<Long> chittyNumbers = new HashSet<>();
-    List<ChittalDetails> chittalList = new ArrayList<ChittalDetails>();
+
 
     @Override
     public Set<Long> getChitties(Long id) {
+        List<ChittalDetails> chittalList = new ArrayList<ChittalDetails>();
         chittalList = chittalDetailsRepo.findAll();
+        Set<Long> chittyNumbers = new HashSet<Long>();
         for(ChittalDetails chittalDetails : chittalList){
 //            System.out.println(chittalDetails.getUserId().getId());
 //            System.out.println(id);
