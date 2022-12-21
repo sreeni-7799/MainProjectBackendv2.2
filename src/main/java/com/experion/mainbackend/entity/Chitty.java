@@ -1,6 +1,6 @@
 package com.experion.mainbackend.entity;
 
-import lombok.Data;
+
 import lombok.Getter;
 import lombok.Setter;
 import net.minidev.json.annotate.JsonIgnore;

@@ -1,6 +1,6 @@
 package com.experion.mainbackend.dto;
 
-//import com.experion.mainbackend.entity.UserRegistration;
+
 import lombok.Data;
 
 @Data

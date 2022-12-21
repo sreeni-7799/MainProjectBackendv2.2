@@ -2,9 +2,7 @@ package com.experion.mainbackend.service;
 
 import com.experion.mainbackend.dto.NomineePost;
 import com.experion.mainbackend.entity.ChittalDetails;
-import com.experion.mainbackend.entity.Chitty;
 import com.experion.mainbackend.entity.NomineeDetails;
-import com.experion.mainbackend.entity.UserRegistration;
 import com.experion.mainbackend.repository.ChittalDetailsRepo;
 import com.experion.mainbackend.repository.NomineeDetailsRepo;
 import lombok.AllArgsConstructor;

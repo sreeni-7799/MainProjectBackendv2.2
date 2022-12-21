@@ -11,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -39,7 +39,7 @@ public class ManagerController {
         return this.managerService.getAllManagers();
     }
 
-//    @RequestMapping(value = "*/addmanager",method = RequestMethod.POST )
+
     @PostMapping("*/addmanager")
     public ResponseEntity<Object> add(@RequestBody Manager manager){
         managerService.add(manager);

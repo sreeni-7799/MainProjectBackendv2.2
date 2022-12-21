@@ -4,8 +4,6 @@ package com.experion.mainbackend.service;
 import com.experion.mainbackend.dto.ChangePassword;
 import com.experion.mainbackend.dto.User;
 import com.experion.mainbackend.dto.UserResponse;
-import com.experion.mainbackend.entity.Manager;
-import com.experion.mainbackend.entity.Role;
 import com.experion.mainbackend.entity.UserLogin;
 import com.experion.mainbackend.entity.UserRegistration;
 import com.experion.mainbackend.repository.ManagerRepo;
@@ -36,8 +34,6 @@ public class UserLoginServiceImpl implements UserLoginService {
         Long userId = null;
         String role= "";
         String email="";
-//        String firstName = null;
-//        int userLoginTracker=0;
 
 
         List<UserLogin> login=userLoginRepository.findAll();

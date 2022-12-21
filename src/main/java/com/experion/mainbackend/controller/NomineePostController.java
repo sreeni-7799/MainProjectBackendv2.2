@@ -1,8 +1,7 @@
 package com.experion.mainbackend.controller;
 
-import com.experion.mainbackend.dto.ChittalPost;
+
 import com.experion.mainbackend.dto.NomineePost;
-import com.experion.mainbackend.service.ChittalService;
 import com.experion.mainbackend.service.NomineeService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;

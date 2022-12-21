@@ -1,7 +1,6 @@
 package com.experion.mainbackend.controller;
 
 import com.experion.mainbackend.dto.AuctionPost;
-import com.experion.mainbackend.dto.ChittyPost;
 import com.experion.mainbackend.service.AuctionService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

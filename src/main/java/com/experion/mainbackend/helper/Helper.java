@@ -5,12 +5,9 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -82,11 +79,6 @@ public class Helper {
                         case 4:
                             p.setMobileNumber((long)cell.getNumericCellValue());
                             break;
-//                        case 5:
-//                            p.setPassWord(defaultPassword);
-//                            break;
-//                        case 6:
-//                            p.setRoleId(roleId);
                         default:
                     }
                     cid++;

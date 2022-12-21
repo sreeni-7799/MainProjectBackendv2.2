@@ -2,7 +2,7 @@ package com.experion.mainbackend.controller;
 
 
 import com.experion.mainbackend.dto.UserRegistrationDTO;
-import com.experion.mainbackend.entity.UserRegistration;
+
 import com.experion.mainbackend.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

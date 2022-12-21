@@ -1,6 +1,6 @@
 package com.experion.mainbackend.dto;
 
-        import lombok.Data;
+import lombok.Data;
 
 @Data
 public class ChittalPostResponse {

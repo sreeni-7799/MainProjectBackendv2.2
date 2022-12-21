@@ -5,7 +5,6 @@ import com.experion.mainbackend.entity.*;
 import com.experion.mainbackend.repository.AuctionRepo;
 import com.experion.mainbackend.repository.ChitRepository;
 import com.experion.mainbackend.repository.UserLoginRepository;
-import com.experion.mainbackend.repository.UserRegistrationRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;

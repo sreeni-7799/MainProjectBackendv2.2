@@ -1,7 +1,7 @@
 package com.experion.mainbackend.service;
 
 import com.experion.mainbackend.entity.ChittalDetails;
-import com.experion.mainbackend.entity.Chitty;
+
 import com.experion.mainbackend.repository.ChitRepository;
 import com.experion.mainbackend.repository.ChittalDetailsRepo;
 import lombok.AllArgsConstructor;
@@ -28,12 +28,7 @@ public class ChittalUserIdServiceImpl implements ChittalUserIdService{
         chittalList = chittalDetailsRepo.findAll();
         Set<Long> chittyNumbers = new HashSet<Long>();
         for(ChittalDetails chittalDetails : chittalList){
-//            System.out.println(chittalDetails.getUserId().getId());
-//            System.out.println(id);
-//            System.out.println(chittalDetails.getChittyId().getChitNumber());
             if(chittalDetails.getUserId().getId().equals(id)){
-//                System.out.println(chittalDetails.getChittyId().getChitNumber());
-//                System.out.println(chittalDetails.getChittyId());
                 chittyNumbers.add(chittalDetails.getChittyId().getChitNumber());
             }
         }

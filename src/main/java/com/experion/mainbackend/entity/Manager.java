@@ -1,10 +1,8 @@
 package com.experion.mainbackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import net.minidev.json.annotate.JsonIgnore;
 import javax.persistence.*;
 import java.util.HashSet;
